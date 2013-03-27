@@ -12,9 +12,12 @@ public static class HtExtendMethodStr
 {
 	
 	
-	public static void ShowEachChar(this byte[] pByte)  // [2013:3:26:MOON] Added..
+	public static void ShowEachChar(this byte[] pByte, string pComment)  // [2013:3:26:MOON] Added..
 	{
 		Ag.LogIntense (3, true);
+		(" >>>>>      HtExtendMethodStr ::  ShowEachChar                 >>>>>>>>>>>>>>>>>>>>>  >>>>>   " + pComment + "   <<<<<") .HtLog ();
+		Ag.LogString (pComment);
+		
 		int ii, num = BitConverter.ToUInt16 (pByte, 12) + 14;
 		
 		for (ii=0; ii<num; ii++) {
@@ -29,9 +32,9 @@ public static class HtExtendMethodStr
 			Ag.LogString ("Cur byte is:>> \t\t 0x " + hexOutput +  ", \t   at \t ____ " + ii + " \t ____  \t DEC : " + cur + " \t _____      \t" +  ((char)cur).ToString() );
 		}
 		Ag.LogString ("______________________________ Total Length = " + num + "\n");
+		(" >>>>>      HtExtendMethodStr ::  ShowEachChar                 >>>>>>>>>>>>>>>>>>>>>  >>>>>   " + pComment + "   <<<<<") .HtLog ();
 		Ag.LogIntense (3, false);
 	}
-	
 	
 	public static void HtLog(this string pStr ) {
 		if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.Android)

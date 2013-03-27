@@ -8,8 +8,6 @@ using System.Text;
 
 
 
-
-
 public enum Venture
 {
     NONE,
@@ -54,6 +52,7 @@ public class HtManager
     {
         return mEq.GetFormer ();
     }
+
     public HmFriend GetLatter()
     {
         return mEq.GetLatter ();
@@ -65,11 +64,11 @@ public class HtManager
     }
 
 
+
     public void SetState(string pStt)
     {
         //(" HmVentureMan  :: SetState    " + pStt + "        arrObjct.Count is  " + arrObject.Count).HtLog ();
         mState = pStt;
-
         mEq.SetState (pStt);
     }
 
@@ -82,7 +81,5 @@ public class HtManager
     {
         mEq.DestroyJinsim ();
     }
-
-
 
 }
