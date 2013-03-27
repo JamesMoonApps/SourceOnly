@@ -1,11 +1,36 @@
+// [2013:1:8:MOON] Start
 using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
+using System.Net.Sockets;
+using System.Linq;
 
 //  ////////////////////////////////////////////////     ////////////////////////     >>>>> String & Debug.... <<<<<
 public static class HtExtendMethodStr
 {
 	
 	
+	public static void ShowEachChar(this byte[] pByte)  // [2013:3:26:MOON] Added..
+	{
+		Ag.LogIntense (3, true);
+		int ii, num = BitConverter.ToUInt16 (pByte, 12) + 14;
+		
+		for (ii=0; ii<num; ii++) {
+			byte cur;
+			cur = pByte [ii];
+			string hexOutput = String.Format ("{0:X}", cur);
+			//System.Text.Encoding.ASCIIEncoding.GetBytes(x.ToString());
+			
+			if (ii == 14)
+				Ag.LogString("______________________________ Above are Header ______________________________");
+			
+			Ag.LogString ("Cur byte is:>> \t\t 0x " + hexOutput +  ", \t   at \t ____ " + ii + " \t ____  \t DEC : " + cur + " \t _____      \t" +  ((char)cur).ToString() );
+		}
+		Ag.LogString ("______________________________ Total Length = " + num + "\n");
+		Ag.LogIntense (3, false);
+	}
 	
 	
 	public static void HtLog(this string pStr ) {
